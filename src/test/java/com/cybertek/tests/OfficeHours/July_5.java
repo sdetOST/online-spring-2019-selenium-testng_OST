@@ -1,4 +1,4 @@
-package com.cybertek.OfficeHours;
+package com.cybertek.tests.OfficeHours;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

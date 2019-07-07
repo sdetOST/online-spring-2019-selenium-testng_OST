@@ -1,4 +1,4 @@
-package com.cybertek.day4;
+package com.cybertek.tests.day4;
 
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -8,8 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Test3 {
-
+public class Test2 {
     public static void main(String[] args) throws Exception {
         //this line replaces System.setProperty("webdriver", "pah to the webdriver")
         WebDriverManager.chromedriver().setup(); //setup webdriver
@@ -21,18 +20,20 @@ public class Test3 {
         WebElement emailInputBox = driver.findElement(By.name("email")); //we found input box
         WebElement submitButton = driver.findElement(By.id("form_submit"));//we found submit button
 
+        Faker faker = new Faker();
 
-        emailInputBox.sendKeys("sdetpro3000@gmail.com"); // to enter text into input box
-
-        System.out.println(emailInputBox.getAttribute("pattern")); // to read value of pattern attribute. We can any attribute of element
-        System.out.println(emailInputBox.getAttribute("value"));//value it's a text that you enter into input box
-        Thread.sleep(3000);
-        submitButton.submit(); // it work only with buttons. Click method is more flexible.
-
+//      emailInputBox.sendKeys("email@gmail.com", Keys.ENTER);//to enter text and hit enter
+        String name = faker.pokemon().name().replace(" ", "").toLowerCase();
 
         Thread.sleep(3000);
+        emailInputBox.sendKeys(faker.internet().emailAddress());
 
+        Thread.sleep(3000);
+        emailInputBox.clear(); // clears text from input box
+        Thread.sleep(3000);
 
+        emailInputBox.sendKeys(name+"@gmail.com", Keys.ENTER);
+        Thread.sleep(3000);
         driver.close();
 
     }

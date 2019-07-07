@@ -1,4 +1,4 @@
-package com.cybertek.day7;
+package com.cybertek.tests.day7;
 
 import com.cybertek.utilities.BrowserFactory;
 import com.cybertek.utilities.SeleniumUtils;

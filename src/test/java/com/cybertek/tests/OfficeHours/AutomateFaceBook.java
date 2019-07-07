@@ -1,4 +1,4 @@
-package com.cybertek.OfficeHours;
+package com.cybertek.tests.OfficeHours;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;

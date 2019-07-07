@@ -1,11 +1,9 @@
-package com.cybertek.OfficeHours;
+package com.cybertek.tests.OfficeHours;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-//  import static com.cybertek.OfficeHours.library.*;
+//  import static com.cybertek.tests.OfficeHours.library.*;
 
 public class June_27 {
 

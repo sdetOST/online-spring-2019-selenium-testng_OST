@@ -1,4 +1,4 @@
-package com.cybertek.day5;
+package com.cybertek.tests.day5;
 
 import com.cybertek.utilities.BrowserFactory;
 import org.openqa.selenium.By;

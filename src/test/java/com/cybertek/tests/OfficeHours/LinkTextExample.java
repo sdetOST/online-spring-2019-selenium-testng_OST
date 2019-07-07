@@ -1,4 +1,4 @@
-package com.cybertek.OfficeHours;
+package com.cybertek.tests.OfficeHours;
 
 import com.cybertek.utilities.BrowserFactory;
 import org.openqa.selenium.By;

@@ -15,23 +15,23 @@ public class DropDownTests {
     WebDriver driver;
 
     @BeforeClass
-    public void beforeClass(){
+    public void beforeClass() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
-//    open website http://practice.cybertekschool.com/dropdown
+    //    open website http://practice.cybertekschool.com/dropdown
 //    verify default year is current 2019
 //    verify default month is current July
 //    verify default day is current 7
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
         driver.get("http://practice.cybertekschool.com/dropdown");
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         //expected data
         int expectedYear = 2019;
         String expectedMonth = "July";
@@ -45,15 +45,15 @@ public class DropDownTests {
         String actualMonth = selectMonth.getFirstSelectedOption().getText();
         int actualDay = Integer.parseInt(selectDay.getFirstSelectedOption().getText());
         //assert expected values are the same as actual
-        Assert.assertEquals(actualDay,expectedDay);
+        Assert.assertEquals(actualDay, expectedDay);
         Assert.assertEquals(actualMonth, expectedMonth);
         Assert.assertEquals(actualYear, expectedYear);
 
     }
 
     @AfterMethod
-    public void tearDown(){
-       driver.quit();
+    public void tearDown() {
+        driver.quit();
     }
 
 }

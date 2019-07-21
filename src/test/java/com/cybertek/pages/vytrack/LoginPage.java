@@ -1,4 +1,4 @@
-package com.cybertek.tests.day14_properties_singleton_driver_test_base;
+package com.cybertek.pages.vytrack;
 
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.By;

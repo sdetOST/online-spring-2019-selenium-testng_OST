@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -103,15 +104,19 @@ public class ActionsClassTests {
         //once we completed drag and drop operation, we expect to see this message
         String expectedMessage = "You did great!";
         String actualMessage = earth.getText();
-        Assert.assertEquals(actualMessage, expectedMessage);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actualMessage, expectedMessage);
+//        Assert.assertEquals(actualMessage, expectedMessage);
 
         SeleniumUtils.waitPlease(3);// FOR DEMO
+        softAssert.assertAll();
 
     }
 
     @AfterMethod
     public void teardown(){
         driver.quit();
+
     }
 }
 

@@ -10,8 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    WebDriver driver;
-    Actions action;
+    //should be public/protected !!!!
+    public WebDriver driver;
+    public Actions action;
 
     @BeforeMethod
     public void setup(){

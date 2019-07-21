@@ -26,15 +26,29 @@ public class CalendarEventsTests extends TestBase {
 
        //go to Calendar Events
         VYTrackUtils.navigateToModule(driver, "Activities", "Calendar Events");
-
+        //since vytrack displays overlay screen during loading of the page
+        //we have wait, until that overlay screen disappear
+        VYTrackUtils.waitUntilLoaderScreenDisappear(driver);
        driver.findElement(By.cssSelector(calendarPage.createCalendarEventBtnLocator)).click();
+
+        //since vytrack displays overlay screen during loading of the page
+        //we have wait, until that overlay screen disappear
+       VYTrackUtils.waitUntilLoaderScreenDisappear(driver);
        driver.findElement(By.cssSelector(calendarPage.repeatCheckBoxLocator)).click();
 
-       List<String> expectedOptions = Arrays.asList("Daily", "Weekly","Monthly");
+       List<String> expectedOptions = Arrays.asList("Daily", "Weekly","Monthly", "Yearly");
        List<String> actualOptions = calendarPage.getRepeatOptions();
 
-       Assert.assertTrue(actualOptions.contains(expectedOptions));
+      //correct way to check if 2 collections are equals
+       Assert.assertEquals(actualOptions, expectedOptions);
+
     }
+
+    @Test
+    public void DailyRepeatOptionRepeatEveryTest(){
+
+    }
+
 
     //AfterMethod id coming from TestBase
 }

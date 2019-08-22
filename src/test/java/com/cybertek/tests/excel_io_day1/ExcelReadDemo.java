@@ -29,7 +29,8 @@ public class ExcelReadDemo {
 
     @Test
     public void readExcelFileRowAndColTest(){
-
+        int rowCount = sheet.getLastRowNum();
+        System.out.println("Row count: "+rowCount);
     }
 
     @AfterMethod

@@ -33,6 +33,7 @@ public class ExcelDemo {
         workbook = WorkbookFactory.create(inputStream);
 
         fileOutputStream = new FileOutputStream(path);
+
         sheet = workbook.getSheet("Countries");
     }
 

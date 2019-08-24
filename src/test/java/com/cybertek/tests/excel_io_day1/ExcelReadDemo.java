@@ -8,7 +8,9 @@ import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ExcelReadDemo {
@@ -80,10 +82,28 @@ public class ExcelReadDemo {
     }
 
     @Test
-    public void putDataIntoListOfMapsTest(){
+    public void putDataIntoListOfMapsTest() {
+        List<Map<String, String>> countries = new ArrayList<>();
+        int rowCount = sheet.getLastRowNum();
+        int colCount = sheet.getRow(0).getLastCellNum();
+        for (int j = 1; j <= rowCount; j++) {
 
+            Map<String, String> map = new HashMap<>();
+
+            String country = sheet.getRow(j).getCell(0).toString();
+            String capital = sheet.getRow(j).getCell(1).toString();
+
+            map.put("country", country);
+            map.put("capital", capital);
+            countries.add(map);
+        }
+        System.out.println(countries);
     }
 
+    @Test
+    public void putDataIntoListOfMapsTest2(){
+
+    }
 
     @AfterMethod
     public void tearDown() throws IOException {

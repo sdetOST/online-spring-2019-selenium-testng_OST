@@ -47,8 +47,11 @@ public class DropDownsPractice {
         //we can get list of options that are present in the dropdown
         List<WebElement> options = dropdownSelect.getOptions();
         for(WebElement option: options){
+            dropdownSelect.selectByVisibleText(option.getText());
             System.out.println(option.getText());
         }
+        dropdownSelect.getAllSelectedOptions();
+
     }
 
     public static void test2(){
@@ -136,6 +139,7 @@ public class DropDownsPractice {
         SeleniumUtils.waitPlease(2);
         multipleSelectionSelect.selectByVisibleText("JavaScript");
         SeleniumUtils.waitPlease(2);
+
 
 
     }

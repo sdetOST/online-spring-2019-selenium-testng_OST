@@ -45,6 +45,7 @@ public class LocatorsPracticeID {
         driver.findElement(By.linkText("Logout")).click();
         Thread.sleep(3000);
         driver.quit();
+
     }
 
 

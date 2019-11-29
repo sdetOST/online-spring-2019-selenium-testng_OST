@@ -1,5 +1,6 @@
 package com.cybertek.tests.day8_testng_intro;
 
+import com.cybertek.utilities.Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,16 @@ public class DropDownTests {
 //    verify default day is current 7
     @BeforeMethod
     public void setUp() {
-        driver.get("http://practice.cybertekschool.com/dropdown");
+          driver.get("http://practice.cybertekschool.com/dropdown");
+    }
+
+    @Test
+    public void testIframe() {
+        driver.get("http://practice.cybertekschool.com/iframe");
+        driver.switchTo().frame("mce_0_ifr");
+        driver.findElement(By.id("tinymce")).clear();
+        driver.findElement(By.id("tinymce")).sendKeys("Test Automation");
+        driver.switchTo().defaultContent();
     }
 
     @Test

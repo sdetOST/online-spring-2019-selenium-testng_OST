@@ -1,70 +1,67 @@
 package com.cybertek.tests.OfficeHours;
 
+import com.cybertek.utilities.SeleniumUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import static org.testng.Assert.*;   // imports all static features from the Assert class
-
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class Assertion_Practices {
+import static org.testng.Assert.*;
+import static org.testng.Assert.assertTrue;
+
+public class HandleExample {
 
     WebDriver driver;
 
     @BeforeClass
     public void XX() {
         WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
     }
 
     @BeforeMethod
-    public void SetUp() {
-        driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.facebook.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        /*
-         implicity wait time:   maximum wait for lacting element is 10 seconds,
-             if the element is located within 2 or 3 seconds, it deos not wait the remining seconds
+    public void setup() {
+        driver.get("http://toolsqa.com/automation-practice-switch-windows/");
 
-         Thread.sleep(10000):  it MUST wait 10 seconds regardless of what
-         */
+    }
+    @Test
+    public void handleWindows() {
 
+// Store and Print the name of the First window on the console
+        String handle= driver.getWindowHandle();
+        System.out.println(handle);
+
+// Click on the Button "New Message Window"
+ //       driver.findElement(By.name("New Message Window")).click();
+
+// Store and Print the name of all the windows open
+        Set handles = driver.getWindowHandles();
+        System.out.println(handles);
+
+// Pass a window handle to the other window
+
+        for (String handle1 : driver.getWindowHandles()) {
+            System.out.println(handle1);
+            driver.switchTo().window(handle1);
+        }
 
     }
 
 
-    @Test(
-            priority=1,
-            description="Verify URL and Title, Postive test",
-            timeOut=5000
-    )
-    public void Test1() {
-
-        //   library.sleep(5);
-        assertTrue(driver.getTitle().contains("Facebook"));
-        assertTrue(driver.getCurrentUrl().equals("https://www.facebook.com/"));
-
-        assertEquals(driver.getTitle(), "Facebook - Log In or Sign Up");
-        assertEquals(driver.getCurrentUrl(), "https://www.facebook.com/");
-
-
-        System.out.println("test 1 completed");
-
-    }
-
-
-    @Test(
-            priority=2,
-            description="Verify URL and Title, negative"
-
-    )
+    @Test(priority=2, description="xxx" )
     public void Test2() {
 
         assertFalse(driver.getTitle().contains("Google"));
@@ -129,9 +126,10 @@ public class Assertion_Practices {
 
     @AfterMethod
     public void teardown() {
-        library.sleep(3.5);
+        SeleniumUtils.waitPlease(1);
+        driver.close();
+        SeleniumUtils.waitPlease(1);
         driver.quit();
     }
-
 
 }

@@ -38,7 +38,7 @@ public class TestNG_Practice {
 
     @Test( priority = -100,
             description = "Verify the Title",
-    timeOut = 4000,
+            timeOut = 4000,
             enabled = false
     )
     public void test2(){
